@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation | Byeon Wooseok & Septiani</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0b0b0b;
+  color: #eee;
+  overflow-x: hidden;
+}
+
+:root {
+  --gold: #d6b875;
+  --dark: #0b0b0b;
+  --card: #191919;
+}
+
+.script {
+  font-family: 'Great Vibes', cursive;
+  color: var(--gold);
+  font-size: 3rem;
+}
+
+.title {
+  font-family: 'DM Serif Display', serif;
+  color: var(--gold);
+  font-size: 2rem;
+  margin: 15px 0;
+}
+
+.divider {
+  width: 65px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto;
+}
+
+/* AMPLOP */
+#opening {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.9)),
+    url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80")
+    center/cover;
+}
+
+.envelope-wrapper {
+  text-align: center;
+  width: 100%;
+  max-width: 430px;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: #252018;
+  margin: 50px auto 30px;
+  border: 1px solid var(--gold);
+  border-radius: 5px;
+  box-shadow: 0 0 40px rgba(214,184,117,.2);
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 149px solid transparent;
+  border-right: 149px solid transparent;
+  border-top: 110px solid #493b23;
+  transform-origin: top;
+  transition: transform 1s;
+  z-index: 3;
+}
+
+.envelope.open::before {
+  transform: rotateX(180deg);
+}
+
+.envelope::after {
+  content: "♡";
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  font-size: 45px;
+  z-index: 4;
+}
+
+.envelope.open::after {
+  opacity: 0;
+}
+
+.letter {
+  position: absolute;
+  width: 85%;
+  height: 165px;
+  background: #f4e9cf;
+  left: 7.5%;
+  top: 15px;
+  transition: transform 1s;
+  z-index: 2;
+}
+
+.envelope.open .letter {
+  transform: translateY(-100px);
+}
+
+.open-btn {
+  padding: 13px 30px;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: #111;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.open-btn:hover {
+  background: transparent;
+  color: var(--gold);
+}
+
+.small {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #c9b88e;
+}
+
+/* ISI UNDANGAN */
+#invitation {
+  display: none;
+}
+
+section {
+  padding: 75px 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 850px;
+  margin: auto;
+}
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.85)),
+    url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80")
+    center/cover;
+}
+
+.hero-card {
+  background: rgba(15,15,15,.85);
+  padding: 45px 25px;
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.couple-name {
+  font-family: 'Great Vibes', cursive;
+  color: var(--gold);
+  font-size: clamp(3.2rem, 10vw, 5rem);
+  margin: 25px 0;
+}
+
+.date {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+}
+
+.quote {
+  max-width: 650px;
+  margin: auto;
+  line-height: 2;
+  color: #ddd;
+  font-family: 'DM Serif Display', serif;
+  font-size: 19px;
+}
+
+.couple-section {
+  background: #151515;
+}
+
+.person {
+  margin: 30px auto;
+}
+
+.person h3 {
+  font-family: 'DM Serif Display', serif;
+  color: var(--gold);
+  font-size: 26px;
+  margin: 15px;
+}
+
+.photo {
+  width: 175px;
+  height: 175px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 25px rgba(214,184,117,.15);
+}
+
+.and {
+  font-family: 'Great Vibes', cursive;
+  font-size: 50px;
+  color: var(--gold);
+}
+
+.event-card {
+  background: var(--card);
+  border: 1px solid rgba(214,184,117,.4);
+  border-radius: 18px;
+  padding: 30px 20px;
+  margin: 25px auto;
+  max-width: 550px;
+  line-height: 2;
+}
+
+.event-card h3 {
+  font-family: 'DM Serif Display', serif;
+  color: var(--gold);
+  font-size: 25px;
+}
+
+.gold-btn {
+  display: inline-block;
+  padding: 11px 25px;
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+  text-decoration: none;
+  color: var(--gold);
+  margin-top: 15px;
+  transition: .3s;
+}
+
+.gold-btn:hover {
+  background: var(--gold);
+  color: #111;
+}
+
+/* COUNTDOWN */
+.countdown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.time-box {
+  background: #1c1c1c;
+  border: 1px solid var(--gold);
+  padding: 15px;
+  width: 85px;
+  border-radius: 12px;
+}
+
+.time-box span {
+  display: block;
+  font-size: 25px;
+  color: var(--gold);
+  font-family: 'DM Serif Display', serif;
+}
+
+.time-box small {
+  font-size: 10px;
+}
+
+/* RSVP */
+.rsvp-box {
+  max-width: 500px;
+  margin: auto;
+  background: #191919;
+  border: 1px solid rgba(214,184,117,.4);
+  padding: 25px;
+  border-radius: 18px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 13px;
+  margin: 8px 0;
+  border-radius: 9px;
+  border: 1px solid #806b43;
+  background: #101010;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+textarea {
+  height: 100px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--gold);
+  color: #111;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* MUSIK */
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.music-control button {
+  background: #191919;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 12px 17px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  background: #050505;
+  border-top: 1px solid var(--gold);
+  padding: 50px 20px;
+  text-align: center;
+  color: #ddd;
+}
+
+@media(max-width: 600px) {
+  .envelope {
+    width: 270px;
+    height: 180px;
+  }
+
+  .envelope::before {
+    border-left-width: 134px;
+    border-right-width: 134px;
+    border-top-width: 100px;
+  }
+
+  .envelope::after {
+    top: 65px;
+  }
+
+  section {
+    padding: 60px 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIK -->
+<audio id="music" loop preload="auto">
+  <source src="Download (3).mp4" type="audio/mpeg">
+</audio>
+
+<!-- HALAMAN AMPLOP -->
+<div id="opening">
+  <div class="envelope-wrapper">
+
+    <div class="small">THE WEDDING INVITATION</div>
+
+    <div class="envelope" id="envelope">
+      <div class="letter"></div>
+    </div>
+
+    <p style="color:#ddd; margin-bottom:20px;">
+      Kepada Yth. Bapak/Ibu/Saudara/i
+    </p>
+
+    <h2 class="title">You're Invited</h2>
+
+    <p style="margin-bottom:25px;color:#ccc;">
+      Dengan penuh kebahagiaan, kami mengundang Anda
+      untuk hadir di hari istimewa kami.
+    </p>
+
+    <button class="open-btn" onclick="openInvitation()">
+      💌 BUKA UNDANGAN
+    </button>
+
+  </div>
+</div>
+
+<!-- ISI UNDANGAN -->
+<div id="invitation">
+
+  <section class="hero">
+    <div class="hero-card">
+      <p class="small">THE WEDDING OF</p>
+
+      <div class="couple-name">
+        Naji Awaludin
+        <br><span style="font-size:.6em">&</span><br>
+        Cho Yi Hyun
+      </div>
+
+      <div class="date">24 · 08 · 2027</div>
+      <div class="divider"></div>
+
+      <p style="color:#ddd;">We invite you to celebrate our special day</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="script">With Love</div>
+      <div class="divider"></div>
+
+      <p class="quote">
+        "Dan di antara tanda-tanda kekuasaan-Nya ialah
+        Dia menciptakan untukmu pasangan hidup dari
+        jenismu sendiri, supaya kamu merasa tenteram
+        kepadanya."
+      </p>
+
+      <p style="color:var(--gold);margin-top:20px;">
+        — QS. Ar-Rum: 21 —
+      </p>
+    </div>
+  </section>
+
+  <section class="couple-section">
+    <div class="container">
+      <div class="script">The Couple</div>
+      <h2 class="title">Bride & Groom</h2>
+      <div class="divider"></div>
+
+      <div class="person">
+        <img src="naji.jfif" class="photo" alt="Naji Awaludin">
+        <h3>Naji Awaludin</h3>
+        <p>Putra tercinta dari<br>Bapak kevin & Ibu Asa</p>
+      </div>
+
+      <div class="and">&</div>
+
+      <div class="person">
+        <img src="yihyun.jfif" class="photo" alt="Cho Yi hyun">
+        <h3>Cho Yi Hyun</h3>
+        <p>Putri tercinta dari<br>Bapak Byeon Wooseok & Ibu Suho</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="script">Save The Date</div>
+      <h2 class="title">Our Special Day</h2>
+      <div class="divider"></div>
+
+      <div class="event-card">
+        <div style="font-size:35px;">💍</div>
+        <h3>Akad Nikah</h3>
+        <p>Sabtu, 14 Januari 2027</p>
+        <p>08.00 WIB – Selesai</p>
+        <p>Gedung Pernikahan Indah<br>Seoul, Korea</p>
+        <a class="gold-btn"
+           href="https://maps.google.com/?q=Gedung+Pernikahan+Bahagia+Jakarta"
+           target="_blank" rel="noopener">
+          Lihat Lokasi
+        </a>
+      </div>
+
+      <div class="event-card">
+        <div style="font-size:35px;">🥂</div>
+        <h3>Resepsi</h3>
+        <p>Sabtu, 14 Januari 2027</p>
+        <p>11.00 – 14.00 WIB</p>
+        <p>Gedung Pernikahan Indah<br>Seoul, Korea</p>
+        <a class="gold-btn"
+           href="https://maps.google.com/?q=Gedung+Pernikahan+Indah+Seoul"
+           target="_blank" rel="noopener">
+          Lihat Lokasi
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#151515;">
+    <div class="container">
+      <div class="script">Counting Down</div>
+      <h2 class="title">Until We Say I Do</h2>
+
+      <div class="countdown">
+        <div class="time-box"><span id="days">00</span><small>HARI</small></div>
+        <div class="time-box"><span id="hours">00</span><small>JAM</small></div>
+        <div class="time-box"><span id="minutes">00</span><small>MENIT</small></div>
+        <div class="time-box"><span id="seconds">00</span><small>DETIK</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="script">RSVP</div>
+      <h2 class="title">Will You Join Us?</h2>
+      <div class="divider"></div>
+
+      <div class="rsvp-box">
+        <form onsubmit="sendRSVP(event)">
+          <input id="name" type="text"
+                 placeholder="Nama kamu 💗" required>
+
+          <select id="attendance" required>
+            <option value="">Konfirmasi Kehadiran</option>
+            <option value="Hadir">InsyaAllah Hadir</option>
+            <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
+          </select>
+
+          <textarea id="message"
+                    placeholder="Tuliskan ucapan dan doa..."></textarea>
+
+          <button class="submit-btn" type="submit">
+            Kirim Konfirmasi 💌
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="script">Naji Awaludin & Cho Yi hyun               </div>
+    <div class="divider"></div>
+    <p>Terima kasih telah menjadi bagian dari hari bahagia kami.</p>
+    <p style="margin-top:15px;color:var(--gold);">Made with ♡</p>
+  </footer>
+
+</div>
+
+<!-- TOMBOL MUSIK -->
+<div class="music-control" id="music-control" style="display:none;">
+  <button onclick="toggleMusic()" id="music-btn">
+    🎵 Musik: ON
+  </button>
+</div>
+
+<script>
+// BUKA AMPLOP DAN UNDANGAN
+function openInvitation() {
+  const envelope = document.getElementById("envelope");
+  const opening = document.getElementById("opening");
+  const invitation = document.getElementById("invitation");
+  const music = document.getElementById("music");
+
+  envelope.classList.add("open");
+
+  music.play().catch(() => {
+    alert("Musik tidak dapat diputar. Periksa file MP3 Anda.");
+  });
+
+  setTimeout(() => {
+    opening.style.display = "none";
+    invitation.style.display = "block";
+    document.getElementById("music-control").style.display = "block";
+    window.scrollTo(0, 0);
+  }, 1200);
+}
+
+// KONTROL MUSIK
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("music-btn");
+
+function toggleMusic() {
+  if (music.paused) {
+    music.play().then(() => {
+      musicBtn.textContent = "🎵 Musik: ON";
+    }).catch(() => {
+      musicBtn.textContent = "▶ Putar Musik";
+    });
+  } else {
+    music.pause();
+    musicBtn.textContent = "▶ Putar Musik";
+  }
+}
+
+// COUNTDOWN
+const weddingDate = new Date("2027-08-24T08:00:00+07:00").getTime();
+
+function updateCountdown() {
+  const now = Date.now();
+  const distance = weddingDate - now;
+
+  if (distance <= 0) {
+    document.querySelector(".countdown").innerHTML =
+      "Hari bahagia telah tiba! 💍";
+    return;
+  }
+
+  document.getElementById("days").textContent =
+    Math.floor(distance / 86400000);
+
+  document.getElementById("hours").textContent =
+    Math.floor((distance % 86400000) / 3600000);
+
+  document.getElementById("minutes").textContent =
+    Math.floor((distance % 3600000) / 60000);
+
+  document.getElementById("seconds").textContent =
+    Math.floor((distance % 60000) / 1000);
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// RSVP WHATSAPP
+function sendRSVP(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const attendance = document.getElementById("attendance").value;
+  const message = document.getElementById("message").value.trim();
+
+  // GANTI DENGAN NOMOR WHATSAPP TUJUAN
+  const phone = "6281234567890";
+
+  const text = encodeURIComponent(
+    `Halo! 💌\nNama: ${name}\nKehadiran: ${attendance}\nUcapan: ${message}`
+  );
+
+  window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+}
+</script>
+
+</body>
+</html>
